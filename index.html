@@ -5,8 +5,360 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Eco Enhance | Organic Waste to Poultry Feed & Fertilizer</title>
     <style>
-        /* All CSS from previous code remains here */
-        /* (Include the entire style section from the earlier HTML) */
+        /* Global Styles */
+        :root {
+            --primary: #2e7d32;
+            --secondary: #81c784;
+            --accent: #ff8f00;
+            --light: #f5f5f5;
+            --dark: #212121;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            line-height: 1.6;
+            color: var(--dark);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            color: var(--primary);
+        }
+        
+        p {
+            margin-bottom: 15px;
+        }
+        
+        .btn {
+            display: inline-block;
+            background: var(--primary);
+            color: white;
+            padding: 12px 25px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+        
+        .btn:hover {
+            background: var(--secondary);
+            transform: translateY(-3px);
+        }
+        
+        /* Header Styles */
+        header {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: fixed;
+            width: 100%;
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+        
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: var(--primary);
+            text-decoration: none;
+        }
+        
+        .nav-links {
+            display: flex;
+            list-style: none;
+        }
+        
+        .nav-links li {
+            margin-left: 30px;
+        }
+        
+        .nav-links a {
+            text-decoration: none;
+            color: var(--dark);
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--primary);
+        }
+        
+        /* Hero Section */
+        #hero {
+            background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae');
+            background-size: cover;
+            background-position: center;
+            color: white;
+            text-align: center;
+            padding: 180px 0 100px;
+        }
+        
+        #hero h1 {
+            font-size: 48px;
+            color: white;
+            margin-bottom: 20px;
+        }
+        
+        #hero p {
+            font-size: 20px;
+            max-width: 800px;
+            margin: 0 auto 30px;
+        }
+        
+        /* About Section */
+        #about {
+            background: var(--light);
+        }
+        
+        .section-title {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        
+        .about-content {
+            display: flex;
+            align-items: center;
+            gap: 50px;
+        }
+        
+        .about-text {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Products Section */
+        .products-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .product-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+        
+        .product-card:hover {
+            transform: translateY(-10px);
+        }
+        
+        .product-image {
+            height: 200px;
+            background: var(--secondary);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 24px;
+        }
+        
+        .product-content {
+            padding: 20px;
+        }
+        
+        /* Process Section */
+        #process {
+            background: var(--light);
+        }
+        
+        .process-steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .step {
+            flex: 0 0 calc(25% - 30px);
+            text-align: center;
+            position: relative;
+        }
+        
+        .step-number {
+            width: 60px;
+            height: 60px;
+            background: var(--primary);
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            font-weight: bold;
+            margin: 0 auto 20px;
+        }
+        
+        .step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 30px;
+            left: 100%;
+            width: calc(100% - 60px);
+            height: 2px;
+            background: var(--secondary);
+        }
+        
+        /* Impact Section */
+        .impact-stats {
+            display: flex;
+            justify-content: space-around;
+            text-align: center;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+        
+        .stat-item {
+            flex: 0 0 200px;
+            margin: 20px;
+        }
+        
+        .stat-number {
+            font-size: 48px;
+            font-weight: bold;
+            color: var(--primary);
+            margin-bottom: 10px;
+        }
+        
+        /* Testimonials */
+        .testimonials {
+            display: flex;
+            gap: 30px;
+            margin-top: 50px;
+            overflow-x: auto;
+            padding-bottom: 20px;
+        }
+        
+        .testimonial-card {
+            min-width: 300px;
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        /* Contact Section */
+        #contact {
+            background: var(--primary);
+            color: white;
+        }
+        
+        #contact h2 {
+            color: white;
+        }
+        
+        .contact-container {
+            display: flex;
+            gap: 50px;
+        }
+        
+        .contact-info {
+            flex: 1;
+        }
+        
+        .contact-info a {
+            color: white;
+            display: block;
+            margin-bottom: 15px;
+            text-decoration: none;
+        }
+        
+        .contact-form {
+            flex: 1;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+        }
+        
+        .form-group input,
+        .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: none;
+            border-radius: 4px;
+        }
+        
+        .form-group textarea {
+            height: 120px;
+        }
+        
+        /* Footer */
+        footer {
+            background: var(--dark);
+            color: white;
+            padding: 30px 0;
+            text-align: center;
+        }
+        
+        .social-links {
+            margin: 20px 0;
+        }
+        
+        .social-links a {
+            color: white;
+            margin: 0 10px;
+            font-size: 20px;
+        }
+        
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .about-content {
+                flex-direction: column;
+            }
+            
+            .step {
+                flex: 0 0 100%;
+                margin-bottom: 40px;
+            }
+            
+            .step:not(:last-child)::after {
+                display: none;
+            }
+            
+            .contact-container {
+                flex-direction: column;
+            }
+        }
     </style>
 </head>
 <body>
@@ -26,39 +378,223 @@
         </div>
     </header>
 
-    <!-- Hero Section with actual image -->
-    <section id="hero" style="background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1605000797499-95a51c5269ae?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');">
-        <!-- Rest of hero section content -->
+    <!-- Hero Section -->
+    <section id="hero">
+        <div class="container">
+            <h1>Transforming Organic Waste into Sustainable Poultry Feed & Fertilizers</h1>
+            <p>Closing the Loop on Food Waste with Innovative Circular Economy Solutions</p>
+            <a href="#about" class="btn">Learn About Our Process</a>
+        </div>
     </section>
 
-    <!-- About Section with actual image -->
+    <!-- About Section -->
     <section id="about">
         <div class="container">
-            <!-- ... other content ... -->
-            <div class="about-image">
-                <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Organic waste processing">
+            <div class="section-title">
+                <h2>About Eco Enhance</h2>
+            </div>
+            <div class="about-content">
+                <div class="about-text">
+                    <h3>Our Mission</h3>
+                    <p>At Eco Enhance, we're revolutionizing waste management by transforming organic byproducts into nutritious poultry feed and premium organic fertilizers. Our proprietary technology mimics nature's recycling process to create sustainable, circular solutions for agriculture.</p>
+                    
+                    <h3>Our Story</h3>
+                    <p>Founded in 2020, Eco Enhance began with a simple observation - while farms struggle with feed costs, cities struggle with food waste. We bridge this gap with innovative biotechnology that upcycles organic waste into valuable agricultural inputs.</p>
+                    
+                    <h3>Our Technology</h3>
+                    <p>Our patented process combines enzyme-enhanced decomposition with nutrient preservation to maintain maximum nutritional value while ensuring product safety and consistency.</p>
+                </div>
+                <div class="about-image">
+                    <img src="https://images.unsplash.com/photo-1542601906990-b4d3fb778b09" alt="Organic waste processing">
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Products Section with proper product images -->
+    <!-- Products Section -->
     <section id="products">
         <div class="container">
+            <div class="section-title">
+                <h2>Our Products</h2>
+                <p>Sustainable solutions for poultry farmers and growers</p>
+            </div>
+            
             <div class="products-grid">
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1599423423927-a2c777b40faa?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
+                    <div class="product-image">
+                        Poultry Feed
                     </div>
-                    <!-- Product content -->
+                    <div class="product-content">
+                        <h3>EcoFeed Poultry Nutrition</h3>
+                        <ul>
+                            <li>High-protein feed supplement from processed organic waste</li>
+                            <li>Rich in essential amino acids and minerals</li>
+                            <li>Improves flock health and egg production</li>
+                            <li>30% more cost-effective than conventional feeds</li>
+                        </ul>
+                    </div>
                 </div>
+                
                 <div class="product-card">
-                    <div class="product-image" style="background: url('https://images.unsplash.com/photo-1597848212624-a19eb35e2651?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80') center/cover;">
+                    <div class="product-image">
+                        Organic Fertilizer
                     </div>
-                    <!-- Product content -->
+                    <div class="product-content">
+                        <h3>EcoGrow Organic Fertilizers</h3>
+                        <ul>
+                            <li>Slow-release nutrient formula</li>
+                            <li>Enhances soil microbiome</li>
+                            <li>Increases crop yields by up to 40%</li>
+                            <li>Certified organic for specialty crops</li>
+                        </ul>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Rest of your HTML content -->
+    <!-- Process Section -->
+    <section id="process">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Circular Process</h2>
+                <p>How we transform waste into valuable products</p>
+            </div>
+            
+            <div class="process-steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Collection</h3>
+                    <p>Partnering with food processors, supermarkets, and farms to collect organic byproducts</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Processing</h3>
+                    <p>Our proprietary technology converts waste into uniform, nutrient-rich material</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Formulation</h3>
+                    <p>Custom blending for specific poultry or crop nutritional needs</p>
+                </div>
+                
+                <div class="step">
+                    <div class="step-number">4</div>
+                    <h3>Distribution</h3>
+                    <p>Delivering sustainable products back to agricultural partners</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Impact Section -->
+    <section id="impact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Our Sustainability Impact</h2>
+                <p>Making a measurable difference for the planet</p>
+            </div>
+            
+            <div class="impact-stats">
+                <div class="stat-item">
+                    <div class="stat-number">10,000+</div>
+                    <p>Tons of waste diverted annually</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">30%</div>
+                    <p>Reduction in feed costs for poultry farmers</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">45%</div>
+                    <p>Lower carbon footprint vs conventional products</p>
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <p>Biodegradable packaging</p>
+                </div>
+            </div>
+            
+            <div class="section-title" style="margin-top: 80px;">
+                <h2>What Our Partners Say</h2>
+            </div>
+            
+            <div class="testimonials">
+                <div class="testimonial-card">
+                    <p>"Eco Enhance's poultry feed has reduced our operating costs while improving our sustainability profile."</p>
+                    <p><strong>- John Smith, Green Valley Poultry Farm</strong></p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"Working with Eco Enhance has helped us achieve zero-waste status while creating new revenue streams."</p>
+                    <p><strong>- Sarah Johnson, FreshFood Processors</strong></p>
+                </div>
+                
+                <div class="testimonial-card">
+                    <p>"The organic fertilizer has significantly improved our soil health and crop yields."</p>
+                    <p><strong>- Michael Brown, Organic Acres Farm</strong></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <div class="container">
+            <div class="section-title">
+                <h2>Contact Us</h2>
+                <p>Ready to enhance your sustainability?</p>
+            </div>
+            
+            <div class="contact-container">
+                <div class="contact-info">
+                    <h3>Get In Touch</h3>
+                    <a href="mailto:info@ecoenhance.com">✉️ info@ecoenhance.com</a>
+                    <a href="tel:+1234567890">📞 +1 (234) 567-890</a>
+                    <p>📍 123 Greenway Blvd, Eco City, EC 12345</p>
+                </div>
+                
+                <div class="contact-form">
+                    <form>
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" id="name" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="message">Message</label>
+                            <textarea id="message" required></textarea>
+                        </div>
+                        
+                        <button type="submit" class="btn">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="logo">Eco Enhance</div>
+            <div class="social-links">
+                <a href="#">FB</a>
+                <a href="#">TW</a>
+                <a href="#">IG</a>
+                <a href="#">LI</a>
+            </div>
+            <p>&copy; 2023 Eco Enhance. All rights reserved.</p>
+            <p><a href="#" style="color: white;">Privacy Policy</a> | <a href="#" style="color: white;">Terms of Service</a></p>
+        </div>
+    </footer>
 </body>
 </html>
